@@ -1,4 +1,4 @@
->  image segmentation에서 제대로된 Deep Learning을 활용한 논문.
+>  image segmentation에서 제대로된 Deep Learning을 활용한 논문.  
 [논문 링크](https://arxiv.org/pdf/1411.4038.pdf)
 
 
@@ -124,7 +124,7 @@
 * 실제로 기본 모델과 결과를 확인해보면 정확하지 않다는 것을 볼 수 있다.
 
 ### Skip Architecture
-* 위에서 결과를 확인하다 싶이 생각보다 Segmenatation에 대한 결과가 좋지 않다는 것을 볼 수 있다.
+* 결과를 보면, 생각보다 Segmenatation에 대한 결과가 좋지 않다는 것을 볼 수 있다.
 * 따라서 앞서 layer에 있는 정보를 가져오는 Skip Architecture를 구성한다.    
 
 ![alt text](./imgs/skip_archi.png)    
