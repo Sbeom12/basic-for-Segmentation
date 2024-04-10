@@ -120,7 +120,7 @@
 * VGG16의 구조를 기반으로 구조를 구성했고, 위에서 설명했듯이 Down-smapling과 Up-sampling이 되는 구조이다.
 * 위 구조에 대해 자세히 살펴보면 빨간색 Blaock이 maxpooling으로 정보 손실이 일어나는 단계로 총 5번 일어난다.
 * 이렇게 maxpooling이 일어나게 되면 정보 손실이 발생하여 fine information이 부족하여 segmentation에 대해 좋은 성능을 보이긴 어렵다.
-![alt text](./imgs/esult1.png)  
+![alt text](./imgs/result1.png)  
 * 실제로 기본 모델과 결과를 확인해보면 정확하지 않다는 것을 볼 수 있다.
 
 ### Skip Architecture
