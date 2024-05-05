@@ -35,6 +35,7 @@ def block3(in_channels, out_channels):
 class FCN(nn.Module):
     def __init__(self):
         super().__init__()
+        self.n_classes = 21
         self.block1 = block1(3,64)
         self.block2 = block1(64,128)
         self.block3 = block1(128,256)
@@ -44,18 +45,15 @@ class FCN(nn.Module):
         conv2 = Conv(4096,4096)
         self.conv1 = nn.Sequential(*conv1,*conv2)
         self.conv2 = nn.Sequential(*Conv(4096,self.n_classes))
-        
         # block6 = nn.Sequential(
         #     self.Conv(512,4096), # 7x7x512 -> 7x7x4096
         #     self.Conv(4096,4096) # 7x7x4096 -> 7x7x4096
         # )
         # output = self.Conv(4096, self.n_classes, kernel_size=3, padding=1)(block6) # 7x7x4096 -> 7x7x21
         
-        
-        self.n_classes = 21
         self.deconv1 = nn.ConvTranspose2d(self.n_classes, self.n_classes, kernel_size=4, stride=2, padding=1) # 7x7x21 -> 14x14x21
         self.deconv2 = nn.ConvTranspose2d(self.n_classes, self.n_classes, kernel_size=4, stride=2, padding=1) # 28x28x21
-        self.deconv3 = nn.ConvTranspose2d(self.n_classes, self.n_classes, kernel_size=16,  padding=4) # 28x28x21 -> 224x224x21
+        self.deconv3 = nn.ConvTranspose2d(self.n_classes, self.n_classes, kernel_size=16,  stride=8, padding=4) # 28x28x21 -> 224x224x21
         self.relu = nn.ReLU(inplace=True)
         self.bn = nn.BatchNorm2d(self.n_classes)
     def forward(self, x):
@@ -73,14 +71,12 @@ class FCN(nn.Module):
         x = self.conv1(x)
         x = self.conv2(x)
         
-        
         # decoder
         x = self.deconv1(x) # 7x7x21 -> 14x14x21
         x = nn.Conv2d(512, self.n_classes,kernel_size=3,padding=1)(x4) + x
         x = self.deconv2(x)
         x = nn.Conv2d(256, self.n_classes,kernel_size=3,padding=1)(x3) + x
         x = self.deconv3(x)
-        
         return x
     
 if __name__=="__main__":
