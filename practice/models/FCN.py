@@ -3,18 +3,18 @@ import torch.nn as nn
 from torchsummary import summary as model_summary
 
 def Conv(in_channels, out_channels, kernel_size=3, padding=1, stride=1):
-    return [
+    return nn.Sequential(
         nn.Conv2d(in_channels, out_channels, kernel_size=kernel_size, padding=padding, stride=stride),
         nn.ReLU(inplace=True),
         nn.BatchNorm2d(out_channels)
-    ]
+    )
 
 def block1(in_channels, out_channels):
     conv1 = Conv(in_channels, out_channels)
     conv2 = Conv(out_channels, out_channels)
-    combined = conv1 + conv2
     return nn.Sequential(
-        *combined,
+        conv1,
+        conv2,
         nn.MaxPool2d(kernel_size=2, stride=2)
     )
     
@@ -22,16 +22,13 @@ def block2(in_channels, out_channels):
     conv1 = Conv(in_channels, out_channels)
     conv2 = Conv(out_channels, out_channels)
     conv3 = Conv(out_channels, out_channels, kernel_size=1, padding=0)
-    combined = conv1 + conv2 + conv3
     return nn.Sequential(
-        *combined,
+        conv1,
+        conv2,
+        conv3,
         nn.MaxPool2d(kernel_size=2, stride=2)
     )
-def block3(in_channels, out_channels):
-    conv1 = Conv(in_channels,out_channels)
-    conv2 = Conv(out_channels,out_channels)
-    combined = conv1 + conv2
-    return nn.Sequential
+
 class FCN(nn.Module):
     def __init__(self):
         super().__init__()
