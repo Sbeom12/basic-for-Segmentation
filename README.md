@@ -51,7 +51,7 @@
 
 ### 3주차: Semantic_Segmentation 2
 - **스터디 진행**
-  - 각자 조사한 U-Net 발표.</br>
+  - 각자 조사한 [U-Net](https://arxiv.org/abs/1505.04597) 발표.</br>
   
 - ** 과제 공지 **
   - Semantic Segmentation을 위한 U-net 구현.
