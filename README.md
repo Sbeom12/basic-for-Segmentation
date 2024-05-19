@@ -39,12 +39,19 @@
     	  - 전통적인 Image Segmentation 방법론 학습
             - Thresholding, Edge Detection, Region Growing, Graph-based Segmentation, Level Set 기법.
 
-### 2주차: Semantic_Segmenation 1
+### 2주차: Semantic_Segmentation 1
 - **스터디 진행**
    - 각자 조사한 Tradition Segmentation 발표.
     
 - **과제 공지**
-	- Semantic Segmentation을 위한 FCN 논문 읽기 및 구현.
+  - Semantic Segmentation을 위한 FCN 논문 읽기 및 구현.
   - 논문 설명과 구현은 따로 진행.
   - 실제 학습으로는 [coco dataset](https://cocodataset.org/#home) 사용.
     - coco dataset 양식 및 학습을 위한 방법 파악 요구됨.
+
+### 3주차: Semantic_Segmentation 2
+- **스터디 진행**
+  - 각자 조사한 U-Net 발표.</br>
+  
+- ** 과제 공지 **
+  - Semantic Segmentation을 위한 U-net 구현.
