@@ -68,6 +68,7 @@
 * Error에 대한 의미
     * Warping Error : Segmentation의 형태학적 정확도를 측정하는 지표로 의료데이터에 특히 많이 사용된다. 각 픽셀에서 가장 가까운 객체 경계까지의 거리를 계산하여 Distance map을 얻어 Ground Truth와 예측된 Segmentation 결과 사이의 대응되는 픽셀을 찾고, 각 픽셀 쌍 사이의 거리를 평균하여 얻음. 낮은 수록 더 좋은 지표.  
     ![alt text](imgs/wrap_error.png)
+      * 위 그림은 Pixel Error는 같지만, Warping Error는 B가 더 좋은 것을 볼 수 있다.
     * Rand Error : Segmentation 결과의 일관성을 측정하는 지표로 낮을수록 좋음. 2개의 픽셀을 뽑아 동일한 객체에 속하는지 여부를 기준으로 계산.
     * Pixel Error : Segmentation의 결과를 픽셀 단위 정확도를 측정하는 지표. 픽셀 에러가 낮을수록 Ground Truth와 유사하다는 의미.
 2. ISBI cell tracking challenge 2015.
