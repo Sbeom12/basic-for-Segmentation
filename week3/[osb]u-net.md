@@ -54,10 +54,10 @@
 
 * 기본적으로 End-to-End 방식으로 학습, 입력 이미지와 그에 해당하는 분할 레이블(Segmentation Label)을 쌍으로 사용하여, 네트워크 전체를 한 번에 학습함.
   * Caffe 프레임워크를 사용하여 Stochastic Gradient Descent(SGD)로 학습됨.
-    * Momentum(0.99)로 설정해서
-  * GPU 메모리를 효율적으로 사용하기 위해 큰 입력 타일을 사용하고, 배치 크기를 1로 설정
+    * Momentum(0.99)로 설정해서 학습.
+  * GPU 메모리를 효율적으로 사용하기 위해 큰 입력 타일을 사용하고, 배치 크기를 1로 설정.
   * Weight map을 사용해 특정 클래스의 픽셀(배경)이 차지하는 비율을 고려하여 불균형을 보정하고 경계부분을 더 잘 학습할도록 만듬.
-  * Loss function으로  Pixel-wise Softmax와 Cross-Entropy 사용
+  * Loss function으로 Pixel-wise Softmax와 Cross-Entropy 사용
 
 
 ## Results
@@ -67,7 +67,7 @@
 * 사람이 작업한것보다는 좋지 않지만, 다른 모델들에 비해 매우 뛰어난 성능을 가지는 것을 보여준다.
 * Error에 대한 의미
     * Warping Error : Segmentation의 형태학적 정확도를 측정하는 지표로 의료데이터에 특히 많이 사용된다. 각 픽셀에서 가장 가까운 객체 경계까지의 거리를 계산하여 Distance map을 얻어 Ground Truth와 예측된 Segmentation 결과 사이의 대응되는 픽셀을 찾고, 각 픽셀 쌍 사이의 거리를 평균하여 얻음. 낮은 수록 더 좋은 지표.  
-    ![alt text](imgs/warp_error.png)
+    ![alt text](imgs/wrap_error.png)
     * Rand Error : Segmentation 결과의 일관성을 측정하는 지표로 낮을수록 좋음. 2개의 픽셀을 뽑아 동일한 객체에 속하는지 여부를 기준으로 계산.
     * Pixel Error : Segmentation의 결과를 픽셀 단위 정확도를 측정하는 지표. 픽셀 에러가 낮을수록 Ground Truth와 유사하다는 의미.
 2. ISBI cell tracking challenge 2015.
