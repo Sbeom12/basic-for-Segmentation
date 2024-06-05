@@ -21,11 +21,15 @@
 ### DeepLab architecture 
 * FCN과 마찬가지로 VGG16을 기반으로 구조를 개선.  
 ![alt text](imgs/Hole_algorithm.png)
-* Hole 알고리즘
+* Hole 알고리즘(atrous convolution)
   * 필터 크기는 그대로 유지하고 입력의 간격(Atrous rate)을 2 또는 4로 주어 Receptive field를 넓힘(해상도는 그대로 유지)
     * 더 큰 문맥 정보를 캡쳐할 수 있도록 도와줌
     * 일반적인 Pooling이 없어도 더 밀집된 feature map을 생성.
     * Down_samping이 없으므로 정보 손실이 없어짐.
+    * 기존 FCN의 방법보다 해상도(Resolution)을 8배 늘어남.
+    * PASCAL VOC에 대해 Fine-tuning이 약 10시간 걸리지만, FCN은 몇일 걸림.
+  
+
 
 ![alt text](imgs/deeplab_archi.png)    
 [이미지출처](https://towardsdatascience.com/witnessing-the-progression-in-semantic-segmentation-deeplab-series-from-v1-to-v3-4f1dd0899e6e)
